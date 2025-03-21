@@ -1,13 +1,18 @@
 import { useState } from 'react'
+import { Routes, Route } from 'react-router'
 import './styles.css'
+import Home from './components/home/home'
+import Footer from './components/footer/Footer'
+import Header from './components/header/Header'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      <h1>Order Management System</h1>
-      <h2>Softuni React Course Exam</h2>
+      <Header />
+      <Home />
+      <Footer />
     </>
   )
 }
