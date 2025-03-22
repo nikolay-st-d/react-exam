@@ -1,13 +1,16 @@
+import { Link } from 'react-router';
+
 export default function Header() {
     return (
         <header>
-            <h1>Order Management System</h1>
+            <h1>OMS <span class="h1-small"> Order Management System</span></h1>
             <nav>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Login</a></li>
-                <li><a href="#">Profile</a></li>
-                <li><a href="#">Logout</a></li>
+                <li><Link to="/"><i class="fa-solid fa-house"></i></Link></li>
+                <li><Link to="#">Login</Link></li>
+                <li><Link to="#">Profile</Link></li>
+                <li><Link to="help">Help</Link></li>
+                <li><Link to="#">Logout</Link></li>
             </ul>
             </nav>
         </header>
