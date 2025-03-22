@@ -2,14 +2,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css");
 
+#root {
+  margin: 0 auto;
+  text-align: center;
+}
 
 html {
   font-family: Ubuntu, Verdana, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #505050;
+  color: rgba(80, 80, 80, 0.87);
+  background-color: #ffffff;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -20,19 +24,20 @@ body {
 }
 
 h1 {
-  font-size: 1.8em;
-  line-height: 1.1;
-  color: rgb(37, 216, 126);
-  text-shadow: 0.1em 0.1em 0.1em rgba(0, 0, 0, 0.5);
+  font-size: 2.2em;
+  font-weight: 800;
+  line-height: 1;
+  color: rgb(255, 162, 39);
 }
 .h1-small {
-  font-size: 0.6em;
-  color: rgb(41, 161, 101);
+  font-size: 0.5em;
+  font-weight: 300;
+  color: rgb(83, 83, 83)
 }
 
 h2 {
   font-size: 1.8em;
-  color: rgb(252, 135, 57);
+  color: #9599e6;
 }
 
 h3 {
@@ -48,7 +53,8 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 0 2em;
-  background-color: black;
+  /* background-color: black; */
+  border-bottom: 1px solid rgb(94, 255, 0);
   width: 100%;
   height: 8vh;
 }
@@ -83,9 +89,9 @@ main {
   justify-content: center;
   align-items: center;
   width: 100%;
-  max-width: 1280px;
   height: 86vh;
   margin: 0 auto;
+  overflow-y : auto;
 }
 
 main a {
@@ -112,11 +118,32 @@ footer p:nth-child(2) {
   color: rgb(121, 121, 121);
 }
 
-button {
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+input {
   font-size: 1.2em;
   padding: 0.3em 0.7em;
   border-radius: 0.4em;
-  background-color: lightgray;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid grey;
+}
+
+button {
+  font-size: 1.2em;
+  font-weight: 700;
+  padding: 0.3em 0.7em;
+  border-radius: 0.4em;
+  background-color: #9599e6;
+  border: none;
+  color: white
+}
+
+button:hover {
+  background-color: #747bff;
 }
 
 @media (prefers-color-scheme: light) {
@@ -130,9 +157,4 @@ button {
   button {
     background-color: #f9f9f9;
   }
-}
-
-#root {
-  margin: 0 auto;
-  text-align: center;
 }
