@@ -19,14 +19,16 @@ function App() {
         <>
             <Header />
             <main>
-                <Routes>
-                    <Route path='/' element={<Home />} />
-                    <Route path='/login' element={<Login />} />
-                    <Route path='/register' element={<Register />} />
-                    <Route path='/profile' element={< Profile />} />
-                    <Route path='/dashboard' element={<Dashboard />} />
-                    <Route path='/logout' element={<Logout />} />
-                </Routes>
+                <div class='main-content-wrapper '>
+                    <Routes>
+                        <Route path='/' element={<Home />} />
+                        <Route path='/login' element={<Login />} />
+                        <Route path='/register' element={<Register />} />
+                        <Route path='/profile' element={<Profile />} />
+                        <Route path='/dashboard' element={<Dashboard />} />
+                        <Route path='/logout' element={<Logout />} />
+                    </Routes>
+                </div>
             </main>
             <Footer />
         </>
