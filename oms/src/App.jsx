@@ -9,12 +9,11 @@ import Register from './components/register/Register';
 import Profile from './components/profile/Profile';
 import Dashboard from './components/dashboard/Dashboard';
 import Logout from './components/logout/Logout';
+import CreateOrder from './components/create/createOrder';
 
 import './styles.css';
 
 function App() {
-    const [count, setCount] = useState(0);
-
     return (
         <>
             <Header />
@@ -24,8 +23,9 @@ function App() {
                     <Route path='/login' element={<Login />} />
                     <Route path='/register' element={<Register />} />
                     <Route path='/profile' element={<Profile />} />
-                    <Route path='/dashboard' element={<Dashboard />} />
+                    <Route path='/orders' element={<Dashboard />} />
                     <Route path='/logout' element={<Logout />} />
+                    <Route path='orders/create' element={<CreateOrder />} />
                 </Routes>
             </main>
             <Footer />

@@ -2,10 +2,10 @@ import { Link } from 'react-router';
 
 export default function Help() {
     return (
-        <div class='main-content-wrapper '>
-            <div class='dashboard-header'>
+        <div className='main-content-wrapper '>
+            <div className='dashboard-header'>
                 <h2>Orders</h2>
-                <button>Add Order</button>
+                <Link to="/orders/create"><i className="fa-solid fa-square-plus"></i> Add Order</Link>
             </div>
             <table>
                 <thead>
@@ -26,12 +26,12 @@ export default function Help() {
                         <td>100</td>
                         <td>Processing</td>
                         <td>
-                            <div class='actions'>
+                            <div className='actions'>
                                 <Link to='/edit-order'>
-                                    <i class='fa-solid fa-pen-to-square'></i>
+                                    <i className='fa-solid fa-pen-to-square'></i>
                                 </Link>
                                 <Link to='/delete-order'>
-                                    <i class='fa-solid fa-trash'></i>
+                                    <i className='fa-solid fa-trash'></i>
                                 </Link>
                             </div>
                         </td>
@@ -43,12 +43,12 @@ export default function Help() {
                         <td>200</td>
                         <td>Shipped</td>
                         <td>
-                            <div class='actions'>
+                            <div className='actions'>
                                 <Link to='/edit-order'>
-                                    <i class='fa-solid fa-pen-to-square'></i>
+                                    <i className='fa-solid fa-pen-to-square'></i>
                                 </Link>
                                 <Link to='/delete-order'>
-                                    <i class='fa-solid fa-trash'></i>
+                                    <i className='fa-solid fa-trash'></i>
                                 </Link>
                             </div>
                         </td>
@@ -60,12 +60,12 @@ export default function Help() {
                         <td>300</td>
                         <td>Delivered</td>
                         <td>
-                            <div class='actions'>
+                            <div className='actions'>
                                 <Link to='/edit-order'>
-                                    <i class='fa-solid fa-pen-to-square'></i>
+                                    <i className='fa-solid fa-pen-to-square'></i>
                                 </Link>
                                 <Link to='/delete-order'>
-                                    <i class='fa-solid fa-trash'></i>
+                                    <i className='fa-solid fa-trash'></i>
                                 </Link>
                             </div>
                         </td>
