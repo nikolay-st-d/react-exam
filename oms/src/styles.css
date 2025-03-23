@@ -10,6 +10,7 @@
 html {
   font-family: Ubuntu, Verdana, Arial, sans-serif;
   line-height: 1.5;
+  font-size: 14px;
   font-weight: 400;
 
   color: rgba(80, 80, 80, 0.87);
@@ -38,10 +39,17 @@ h1 {
 h2 {
   font-size: 1.8em;
   color: #9599e6;
+  margin-bottom: 0.4em;
 }
 
 h3 {
   font-size: 1.2em;
+  margin-bottom: 0.3em;
+}
+
+h4 {
+  margin-bottom: 0.2em;
+
 }
 
 a {
@@ -50,12 +58,27 @@ a {
 
 header {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
   padding: 0 2em;
   border-bottom: 1px solid rgb(94, 255, 0);
   width: 100%;
   height: 8vh;
+}
+
+@media (min-width: 550px) {
+  html {
+  font-size: 16px;
+  }
+}
+@media (min-width: 750px) {
+  html {
+  font-size: 18px;
+  }
+  header {
+    flex-direction: row;
+  }
 }
 
 nav {
@@ -142,6 +165,7 @@ button {
   font-size: 1.2em;
   font-weight: 700;
   padding: 0.3em 0.7em;
+  margin: 0.2em;
   border-radius: 0.4em;
   background-color: #9599e6;
   border: none;
@@ -152,15 +176,43 @@ button:hover {
   background-color: #747bff;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.dashboard-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 2em;
+  border-bottom: 1px solid grey;
+  margin-bottom: 1em;
+}
+
+table {
+  margin: 0 auto;
+  font-size: 1.1em;
+}
+
+th, td {
+  padding: 0.2em 0.5em;
+  border-radius: 0.2em;
+}
+
+th {
+  background-color: rgb(0, 69, 126);
+  color: white;
+}
+
+tr {
+  background-color: rgb(227, 239, 255);
+}
+
+tr:hover {
+  background-color: rgb(238, 245, 255);
+}
+
+.actions {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  justify-content: center;
 }

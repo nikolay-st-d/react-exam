@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 export default function Header() {
     return (
         <header>
-            <h1>OMS <span class="h1-small"> Order Management System</span></h1>
+            <h1>OMS</h1>
             <nav>
             <ul>
                 <li><Link to="/"><i class="fa-solid fa-house"></i></Link></li>
