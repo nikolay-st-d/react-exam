@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Routes, Route } from 'react-router';
 
 import Header from './components/header/Header';
-import Home from './components/home/home';
+import Home from './components/home/Home';
 import Footer from './components/footer/Footer';
 import Login from './components/login/Login';
 import Register from './components/register/Register';

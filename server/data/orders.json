@@ -1,0 +1,34 @@
+{
+    "747ce68b-70b8-4f22-8f69-e23e15b49d4d": {
+        "customerName": "Niko",
+        "customerEmail": "contact@ndimitrov.com",
+        "orderDate": "2025-03-04",
+        "orderTotal": "21",
+        "orderStatus": "Shipped",
+        "_id": "747ce68b-70b8-4f22-8f69-e23e15b49d4d"
+    },
+    "309a0846-dee0-492c-93cb-dff1d40be95a": {
+        "customerName": "Cura",
+        "customerEmail": "cec@yahoo.com",
+        "orderDate": "2025-03-12",
+        "orderTotal": "122",
+        "orderStatus": "Pending",
+        "_id": "309a0846-dee0-492c-93cb-dff1d40be95a"
+    },
+    "c37fdc02-820f-4d27-968d-43a450fc9b5b": {
+        "customerName": "Bobi",
+        "customerEmail": "bon@abv.bg",
+        "orderDate": "2025-03-19",
+        "orderTotal": "44",
+        "orderStatus": "Shipped",
+        "_id": "c37fdc02-820f-4d27-968d-43a450fc9b5b"
+    },
+    "44f6f998-224b-4d42-872a-99f745d5f75e": {
+        "customerName": "Eli",
+        "customerEmail": "eli@mail.bg",
+        "orderDate": "2025-03-24",
+        "orderTotal": "35.55",
+        "orderStatus": "Submitted",
+        "_id": "44f6f998-224b-4d42-872a-99f745d5f75e"
+    }
+}

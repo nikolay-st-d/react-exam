@@ -1,17 +1,15 @@
+import request from "../utils/requester.js";
+
 const baseURL = 'http://localhost:3030/jsonstore/orders';
 
 export default {
-    async create(order) {
-        const response = await fetch(baseURL, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(order)
-        })
+    create(order) {
+        return request.post(baseURL, order);
+    },
+    async getAll() {
+        const result = await request.get(baseURL);
 
-        const result = await response.json();
-
-        return result;
+        const orders = Object.values(result);
+        return orders;
     }
 };

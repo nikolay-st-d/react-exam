@@ -1,17 +1,30 @@
 import { Link } from 'react-router';
+import orderService from '../../services/orderService';
+import { useEffect, useState } from 'react';
+import OrderItem from './order/OrderItem';
 
-export default function Help() {
+export default function Dashboard() {
+    const [orders, setOrders] = useState([]);
+
+    useEffect(() => {
+        orderService.getAll().then((result) => setOrders(result));
+    }),
+        [];
+
     return (
         <div className='main-content-wrapper '>
             <div className='dashboard-header'>
                 <h2>Orders</h2>
-                <Link to="/orders/create"><i className="fa-solid fa-square-plus"></i> Add Order</Link>
+                <Link to='/orders/create'>
+                    <i class='fa-solid fa-plus'></i> Add Order
+                </Link>
             </div>
             <table>
                 <thead>
                     <tr>
                         <th>Order ID</th>
                         <th>Customer Name</th>
+                        <th>Customer Email</th>
                         <th>Order Date</th>
                         <th>Order Total</th>
                         <th>Order Status</th>
@@ -19,57 +32,7 @@ export default function Help() {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>John Doe</td>
-                        <td>2021-01-01</td>
-                        <td>100</td>
-                        <td>Processing</td>
-                        <td>
-                            <div className='actions'>
-                                <Link to='/edit-order'>
-                                    <i className='fa-solid fa-pen-to-square'></i>
-                                </Link>
-                                <Link to='/delete-order'>
-                                    <i className='fa-solid fa-trash'></i>
-                                </Link>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Jane Doe</td>
-                        <td>2021-01-02</td>
-                        <td>200</td>
-                        <td>Shipped</td>
-                        <td>
-                            <div className='actions'>
-                                <Link to='/edit-order'>
-                                    <i className='fa-solid fa-pen-to-square'></i>
-                                </Link>
-                                <Link to='/delete-order'>
-                                    <i className='fa-solid fa-trash'></i>
-                                </Link>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>John Smith</td>
-                        <td>2021-01-03</td>
-                        <td>300</td>
-                        <td>Delivered</td>
-                        <td>
-                            <div className='actions'>
-                                <Link to='/edit-order'>
-                                    <i className='fa-solid fa-pen-to-square'></i>
-                                </Link>
-                                <Link to='/delete-order'>
-                                    <i className='fa-solid fa-trash'></i>
-                                </Link>
-                            </div>
-                        </td>
-                    </tr>
+                    {orders.map(order => <OrderItem key={order._id} {...order} />)}
                 </tbody>
             </table>
         </div>

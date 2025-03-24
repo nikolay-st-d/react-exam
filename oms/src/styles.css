@@ -13,7 +13,7 @@ html {
   font-size: 14px;
   font-weight: 400;
 
-  color: rgba(80, 80, 80, 0.87);
+  color: rgba(134, 134, 134, 0.87);
   background-color: #ffffff;
 
   font-synthesis: none;
@@ -126,18 +126,44 @@ main {
 }
 
 main a {
-  color: #b29dff;
+  color: #ce7aff;
   text-decoration: inherit;
 }
 main a:hover {
-  color: #c7b7ff;
+  color: #db9dff;
 }
 
 .main-content-wrapper {
   width: 100%;
-  max-width: 1440px;
+  max-width: fit-content;
   overflow: auto;
   padding: 2em;
+}
+
+.home {
+  width: 100%;
+  height: 100%;
+  background-color: #384943;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url('../public/home-bg.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.home h2 {
+  /* color: white; */
+  font-size: 4em;
+  text-shadow: 1px 1px 15px rgba(0, 0, 0, 0.9);
+  color: orange;
+}
+
+.home p {
+  color: #9599e6;
+  font-size: 2em;
+  font-weight: 700;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.9);
 }
 
 footer {
@@ -192,9 +218,10 @@ button:hover {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   width: 100%;
-  padding: 0 2em;
+  font-weight: 700;
+  padding: 0 1em;
   border-bottom: 1px solid grey;
   margin-bottom: 1em;
 }

@@ -28,13 +28,19 @@ export default function CreateOrder() {
                     placeholder='Customer Name'
                 />
                 <input
+                    type='email'
+                    id='customerEmail'
+                    name='customerEmail'
+                    placeholder='Customer Email'
+                />
+                <input
                     type='date'
                     id='orderDate'
                     name='orderDate'
                     placeholder='Order Date'
                 />
                 <input
-                    type='number'
+                    type='text'
                     id='orderTotal'
                     name='orderTotal'
                     placeholder='Order Total'
