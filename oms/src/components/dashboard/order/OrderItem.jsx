@@ -1,8 +1,13 @@
 import { Link } from 'react-router';
 
-export default function Order(
-    { _id, customerName, customerEmail, orderDate, orderTotal, orderStatus }
-) {
+export default function OrderItem({
+    _id,
+    customerName,
+    customerEmail,
+    orderDate,
+    orderTotal,
+    orderStatus,
+}) {
     return (
         <tr>
             <td>{_id}</td>

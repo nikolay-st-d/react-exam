@@ -1,4 +1,4 @@
-import request from "../utils/requester.js";
+import request from "../utils/request";
 
 const baseURL = 'http://localhost:3030/jsonstore/orders';
 
@@ -8,7 +8,6 @@ export default {
     },
     async getAll() {
         const result = await request.get(baseURL);
-
         const orders = Object.values(result);
         return orders;
     }

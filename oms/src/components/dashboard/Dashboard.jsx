@@ -8,15 +8,14 @@ export default function Dashboard() {
 
     useEffect(() => {
         orderService.getAll().then((result) => setOrders(result));
-    }),
-        [];
+    }, []);
 
     return (
         <div className='main-content-wrapper '>
             <div className='dashboard-header'>
                 <h2>Orders</h2>
                 <Link to='/orders/create'>
-                    <i class='fa-solid fa-plus'></i> Add Order
+                    <i className='fa-solid fa-plus'></i> Add Order
                 </Link>
             </div>
             <table>
