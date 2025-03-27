@@ -21,7 +21,6 @@ export default function Dashboard() {
             <table>
                 <thead>
                     <tr>
-                        {/* <th>Order ID</th> */}
                         <th>Name</th>
                         <th>Email</th>
                         <th>Phone</th>
@@ -31,7 +30,7 @@ export default function Dashboard() {
                         <th>Order Items</th>
                         <th>Order Total</th>
                         <th>Order Status</th>
-                        <th>Actions</th>
+                        <th>View</th>
                     </tr>
                 </thead>
                 <tbody>

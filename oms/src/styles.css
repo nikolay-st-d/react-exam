@@ -274,13 +274,16 @@ tr:hover {
     gap: 2em;
 }
 .order-details-button {
+    font-weight: 700;
     display: block;
-    padding: 0.3em 0.8em;
+    padding: 0.2em 0.5em;
     border-radius: 0.4em;
-    background-color: lightgray;
+    background-color: rgb(168, 168, 168);
     color: white;
     transition: 0.3s ease;
 }
 .order-details-button:hover {
     background-color: grey;
+    cursor: pointer;
+    color: #db9dff;
 }

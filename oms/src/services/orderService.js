@@ -19,6 +19,6 @@ export default {
         return request.put(`${baseURL}/${id}`, order);
     },
     async delete(id) {
-        return request.del(`${baseURL}/${id}`);
+        return request.delete(`${baseURL}/${id}`);
     }
 };

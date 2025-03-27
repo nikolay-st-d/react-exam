@@ -14,7 +14,6 @@ export default function OrderItem({
 }) {
     return (
         <tr>
-            {/* <td>{_id}</td> */}
             <td>{customerName}</td>
             <td>{customerEmail}</td>
             <td>{customerPhone}</td>
@@ -27,13 +26,7 @@ export default function OrderItem({
             <td>
                 <div className='actions'>
                     <Link to={'/orders/' + _id + '/details'}>
-                        <i className='fa-solid fa-circle-info'></i>
-                    </Link>
-                    <Link to={'/orders/' + _id + '/edit'}>
-                        <i className='fa-solid fa-pen-to-square'></i>
-                    </Link>
-                    <Link to={'/orders/' + _id + '/delete'}>
-                        <i className='fa-solid fa-trash'></i>
+                    <i class="fa-solid fa-eye"></i>
                     </Link>
                 </div>
             </td>
