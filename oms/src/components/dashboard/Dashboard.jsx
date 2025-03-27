@@ -23,22 +23,18 @@ export default function Dashboard() {
                     <tr>
                         <th>Name</th>
                         <th>Email</th>
-                        <th>Phone</th>
                         <th>Country</th>
-                        <th>Address</th>
-                        <th>Order Date</th>
-                        <th>Order Items</th>
-                        <th>Order Total</th>
-                        <th>Order Status</th>
+                        <th>Date</th>
+                        <th>Total</th>
+                        <th>Status</th>
                         <th>View</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {orders.length > 0
-                    ? orders.map(order => <OrderItem key={order._id} {...order} />)
-                    : 'There are no orders in your OMS'}
+                    {orders.map(order => <OrderItem key={order._id} {...order} />)}
                 </tbody>
             </table>
+            <p>{orders.length === 0 ? "You don't have any orders." : ""}</p>
         </div>
     );
 }

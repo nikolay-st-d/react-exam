@@ -60,25 +60,25 @@ export default function OrderDetails(id) {
                 <div>
                     <strong>Order ID:</strong> {order._id}
                 </div>
-            </div>
-            <div className='order-details-buttons'>
-                <Link
-                    className='order-details-button'
-                    to={'/orders/' + order._id + '/edit'}
-                >
-                    <i className='fa-solid fa-pen-to-square'></i> EDIT
-                </Link>
+                <div className='order-details-buttons'>
+                    <Link className='order-details-button' to={'/orders'}>
+                        <i className='fa-solid fa-reply-all'></i> ALL ORDERS
+                    </Link>
 
-                <div
-                    onClick={orderDeleteClickHandler}
-                    className='order-details-button'
-                >
-                    <i className='fa-solid fa-trash'></i> DELETE
+                    <Link
+                        className='order-details-button'
+                        to={'/orders/' + order._id + '/edit'}
+                    >
+                        <i className='fa-solid fa-pen-to-square'></i> EDIT
+                    </Link>
+
+                    <div
+                        onClick={orderDeleteClickHandler}
+                        className='order-details-button'
+                    >
+                        <i className='fa-solid fa-trash'></i> DELETE
+                    </div>
                 </div>
-
-                <Link className='order-details-button' to={'/orders'}>
-                    <i className='fa-solid fa-reply-all'></i> ALL ORDERS
-                </Link>
             </div>
         </>
     );

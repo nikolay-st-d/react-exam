@@ -13,7 +13,7 @@ html {
     font-size: 14px;
     font-weight: 400;
 
-    color: rgba(134, 134, 134, 0.87);
+    color: rgba(75, 75, 75, 0.87);
     background-color: #ffffff;
 
     font-synthesis: none;
@@ -88,7 +88,7 @@ header {
 }
 
 nav {
-    font-size: 1.2em;
+    font-size: 1.1em;
 }
 
 nav ul {
@@ -196,7 +196,7 @@ form {
 }
 
 input {
-    font-size: 1.2em;
+    font-size: 1.1em;
     padding: 0.3em 0.6em;
     border-radius: 0.4em;
     background-color: rgb(255, 255, 255);
@@ -250,7 +250,7 @@ tr {
 }
 
 tr:hover {
-    background-color: rgb(239, 244, 252);
+    background-color: rgb(209, 229, 255);
 }
 
 .actions {
@@ -272,6 +272,7 @@ tr:hover {
     display: flex;
     flex-direction: row;
     gap: 2em;
+    margin-top: 1.5em;
 }
 .order-details-button {
     font-weight: 700;
