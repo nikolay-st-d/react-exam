@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 export default function Header() {
     return (
         <header>
-            <h1><Link to="/"><img className="logo" src={"../public/oms-logo.png"} alt={"oms"} /></Link></h1>
+            <Link to="/" className='logo'><h1>OMS</h1></Link>
             <nav>
             <ul>
                 <li><Link to="/login">Login</Link></li>

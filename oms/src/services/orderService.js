@@ -10,5 +10,15 @@ export default {
         const result = await request.get(baseURL);
         const orders = Object.values(result);
         return orders;
+    },
+    async getOne(id) {
+        const order = await request.get(`${baseURL}/${id}`);
+        return order;
+    },
+    async update(id, order) {
+        return request.put(`${baseURL}/${id}`, order);
+    },
+    async delete(id) {
+        return request.del(`${baseURL}/${id}`);
     }
 };

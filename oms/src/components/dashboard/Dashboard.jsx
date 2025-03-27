@@ -14,24 +14,30 @@ export default function Dashboard() {
         <div className='main-content-wrapper '>
             <div className='dashboard-header'>
                 <h2>Orders</h2>
-                <Link to='/orders/create'>
+                <Link to='/orders/create' title='Add order to OMS'>
                     <i className='fa-solid fa-plus'></i> Add Order
                 </Link>
             </div>
             <table>
                 <thead>
                     <tr>
-                        <th>Order ID</th>
-                        <th>Customer Name</th>
-                        <th>Customer Email</th>
+                        {/* <th>Order ID</th> */}
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Country</th>
+                        <th>Address</th>
                         <th>Order Date</th>
+                        <th>Order Items</th>
                         <th>Order Total</th>
                         <th>Order Status</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {orders.map(order => <OrderItem key={order._id} {...order} />)}
+                    {orders.length > 0
+                    ? orders.map(order => <OrderItem key={order._id} {...order} />)
+                    : 'There are no orders in your OMS'}
                 </tbody>
             </table>
         </div>

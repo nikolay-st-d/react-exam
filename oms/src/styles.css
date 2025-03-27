@@ -31,14 +31,6 @@ h1 {
     color: rgb(255, 125, 3);
 }
 
-h1 a,
-h1 a:visited {
-    color: rgb(255, 125, 3);
-}
-h1 a:hover {
-    transform: scale(1.2);
-}
-
 h2 {
     font-size: 1.8em;
     color: #9599e6;
@@ -84,8 +76,11 @@ header {
 }
 
 .logo {
-    width: 4em;
+    font-size: 1.2em;
+    font-weight: 900;
+    color: orange;
     transition: 0.3s ease;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .logo:hover {
@@ -126,19 +121,27 @@ main {
     margin: 0 auto;
 }
 
-main a {
+main a,
+.actions-button {
     color: #ce7aff;
     text-decoration: inherit;
 }
-main a:hover {
+main a:hover,
+.actions-button:hover {
     color: #db9dff;
+    cursor: pointer;
 }
 
 .main-content-wrapper {
     width: 100%;
     max-width: fit-content;
     overflow: auto;
-    padding: 2em;
+    padding: 1em;
+}
+@media (min-width: 550px) {
+    .main-content-wrapper {
+        padding: 2em;
+    }
 }
 
 .home {
@@ -194,7 +197,7 @@ form {
 
 input {
     font-size: 1.2em;
-    padding: 0.3em 0.7em;
+    padding: 0.3em 0.6em;
     border-radius: 0.4em;
     background-color: rgb(255, 255, 255);
     border: 1px solid grey;
@@ -229,7 +232,6 @@ button:hover {
 
 table {
     margin: 0 auto;
-    font-size: 1.1em;
 }
 
 th,
@@ -256,4 +258,29 @@ tr:hover {
     flex-direction: row;
     gap: 1em;
     justify-content: center;
+}
+.order-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2em;
+    align-items: flex-start;
+    padding: 2em 2.6em;
+    border: 1px solid lightgray;
+    border-radius: 0.5em;
+}
+.order-details-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+}
+.order-details-button {
+    display: block;
+    padding: 0.3em 0.8em;
+    border-radius: 0.4em;
+    background-color: lightgray;
+    color: white;
+    transition: 0.3s ease;
+}
+.order-details-button:hover {
+    background-color: grey;
 }

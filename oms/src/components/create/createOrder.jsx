@@ -34,10 +34,34 @@ export default function CreateOrder() {
                     placeholder='Customer Email'
                 />
                 <input
+                    type='phone'
+                    id='customerPhone'
+                    name='customerPhone'
+                    placeholder='Customer Phone'
+                />
+                <input
+                    type='text'
+                    id='customerCountry'
+                    name='customerCountry'
+                    placeholder='Customer Country'
+                />
+                <input
+                    type='text'
+                    id='customerAddress'
+                    name='customerAddress'
+                    placeholder='Customer Address'
+                />
+                <input
                     type='date'
                     id='orderDate'
                     name='orderDate'
                     placeholder='Order Date'
+                />
+                <input
+                    type='text'
+                    id='orderItems'
+                    name='orderItems'
+                    placeholder='Order Items'
                 />
                 <input
                     type='text'
