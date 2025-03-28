@@ -16,7 +16,7 @@ export default {
         return order;
     },
     async update(id, order) {
-        return request.put(`${baseURL}/${id}`, order);
+        return request.put(`${baseURL}/${id}`, {...order, _id: id});
     },
     async delete(id) {
         return request.delete(`${baseURL}/${id}`);
