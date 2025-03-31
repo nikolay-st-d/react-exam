@@ -8,12 +8,13 @@ export default function CreateOrder() {
     const submitAction = async (formData) => {
         const orderData = Object.fromEntries(formData);
 
-        await orderService.create(orderData);
+        try {
+            await orderService.create(orderData);
+            navigate('/orders');
+        } catch (error) {
+            alert('ORDER NOT CREATED! Error: ' + error);
+        }
 
-        // TODO: Implement Error handling with try/catch to check if the 
-        // creation was successful or not and navigate ONLY in case everything went fine
-
-        navigate('/orders');
     };
 
     return (

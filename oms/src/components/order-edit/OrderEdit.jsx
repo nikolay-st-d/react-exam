@@ -21,7 +21,7 @@ export default function OrderEdit() {
         // TODO: Implement Error handling with try/catch to check if the 
         // update was successful or not and navigate ONLY in case everything went fine
 
-        navigate('/orders');
+        navigate('/orders/');
     };
 
     return (
