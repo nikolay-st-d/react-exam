@@ -13,6 +13,8 @@ import OrderEdit from './components/order-edit/OrderEdit';
 
 import './styles.css';
 import { useState } from 'react';
+import { userContext } from './contexts/userContext';
+import User from './components/user/User';
 
 function App() {
     const [user, setUser] = useState({});
@@ -22,12 +24,15 @@ function App() {
     };
 
     return (
-        <>
+        <userContext.Provider value={{ ...user, userLoginHandler }}>
             <Header />
             <main>
                 <Routes>
                     <Route path='/' element={<Home />} />
-                    <Route path='/login' element={<Login onLogin={userLoginHandler} />} />
+                    <Route
+                        path='/login'
+                        element={<Login/>}
+                    />
                     <Route path='/register' element={<Register />} />
                     <Route path='/orders' element={<Dashboard />} />
                     <Route
@@ -43,7 +48,7 @@ function App() {
                 </Routes>
             </main>
             <Footer />
-        </>
+        </userContext.Provider>
     );
 }
 

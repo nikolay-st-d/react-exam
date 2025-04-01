@@ -93,20 +93,20 @@ nav {
 nav ul {
     display: flex;
     flex-direction: row;
-    gap: 0.5em;
+    gap: 0.6em;
     list-style-type: none;
 }
 
 nav a {
     font-weight: 700;
     display: block;
-    padding: 0.2em;
+    padding: 0.1em 0;
     color: #00dd8c;
     transition: 0.3s ease;
 }
 
 nav a:hover {
-    transform: scale(1.2);
+    transform: scale(1.15);
 }
 
 main {

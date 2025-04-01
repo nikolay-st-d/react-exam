@@ -1,18 +1,25 @@
 import { useNavigate } from 'react-router';
 import authService from '../../services/authService';
-import { useActionState } from 'react';
+import { useActionState, useContext } from 'react';
+import { useLogin } from '../../authHooks/useLogin';
+import { userContext } from '../../contexts/userContext';
 
-export default function Login({ onLogin }) {
+export default function Login() {
+
     const navigate = useNavigate();
+    const {userLoginHandler} = useContext(userContext);
 
     const LoginHandler = async (prevState, formData) => {
+
+        const { login } = useLogin();
+
         const values = Object.fromEntries(formData);
 
         try {
-            const response = await authService.login(values.email, values.password);
+            const response = await login(values.email, values.password);
 
             if (response.email === values.email) {
-                onLogin(response);
+                userLoginHandler(response);
                 navigate('/orders');
             } else {
                 alert('Incorrect login credentials!');
@@ -24,7 +31,7 @@ export default function Login({ onLogin }) {
         return values;
     };
 
-    const [values, LoginAction, isPending] = useActionState(LoginHandler, {
+    const [prevState, LoginAction, isPending] = useActionState(LoginHandler, {
         email: '',
         password: '',
     });
