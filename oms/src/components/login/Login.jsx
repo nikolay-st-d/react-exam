@@ -1,7 +1,6 @@
 import { useNavigate } from 'react-router';
-import authService from '../../services/authService';
 import { useActionState, useContext } from 'react';
-import { useLogin } from '../../authHooks/useLogin';
+import { useLogin } from '../../authHooks/authHooks';
 import { userContext } from '../../contexts/userContext';
 
 export default function Login() {
@@ -9,7 +8,7 @@ export default function Login() {
     const navigate = useNavigate();
     const {userLoginHandler} = useContext(userContext);
 
-    const LoginHandler = async (prevState, formData) => {
+    const loginHandler = async (prevState, formData) => {
 
         const { login } = useLogin();
 
@@ -31,7 +30,7 @@ export default function Login() {
         return values;
     };
 
-    const [prevState, LoginAction, isPending] = useActionState(LoginHandler, {
+    const [prevState, LoginAction, isPending] = useActionState(loginHandler, {
         email: '',
         password: '',
     });
