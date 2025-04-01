@@ -4,7 +4,7 @@ import { userContext } from '../../contexts/userContext';
 import User from '../user/User';
 
 export default function Header() {
-    const { email } = useContext(userContext);
+    const { accessToken } = useContext(userContext);
 
     return (
         <header>
@@ -15,10 +15,25 @@ export default function Header() {
                 <User />
                 <nav>
                     <ul>
-                        <li><Link to='/orders'>Orders</Link></li>
-                        <li><Link to='/login'>Login</Link></li>
-                        <li><Link to='/register'>Register</Link></li>
-                        <li><Link to='/logout'>Logout</Link></li>
+                        {accessToken ? (
+                            <div>
+                                <li>
+                                    <Link to='/orders'>Orders</Link>
+                                </li>
+                                <li>
+                                    <Link to='/logout'>Logout</Link>
+                                </li>
+                            </div>
+                        ) : (
+                            <div>
+                                <li>
+                                    <Link to='/login'>Login</Link>
+                                </li>
+                                <li>
+                                    <Link to='/register'>Register</Link>
+                                </li>
+                            </div>
+                        )}
                     </ul>
                 </nav>
             </div>

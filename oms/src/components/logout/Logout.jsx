@@ -5,7 +5,7 @@ import { userContext } from '../../contexts/userContext';
 
 export default function Logout() {
 
-    const { userLogoutHandler } = useContext(userContext);
+    const { userLogoutHandler } = useContext(userContext);    
 
     const {logout} = useLogout();
 

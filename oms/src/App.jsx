@@ -14,7 +14,6 @@ import OrderEdit from './components/order-edit/OrderEdit';
 import './styles.css';
 import { useState } from 'react';
 import { userContext } from './contexts/userContext';
-import User from './components/user/User';
 
 function App() {
     const [user, setUser] = useState({});

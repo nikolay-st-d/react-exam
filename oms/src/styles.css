@@ -90,10 +90,10 @@ nav {
     font-size: 1.1em;
 }
 
-nav ul {
+nav ul, nav ul div {
     display: flex;
     flex-direction: row;
-    gap: 0.6em;
+    gap: 0.8em;
     list-style-type: none;
 }
 
@@ -191,7 +191,7 @@ form {
     display: flex;
     flex-direction: column;
     gap: 1em;
-    margin: 0 auto;
+    margin: 2em auto;
 }
 
 input {
