@@ -1,4 +1,4 @@
-import request from "../utils/request";
+import request from '../utils/request';
 
 const baseURL = 'http://localhost:3030/jsonstore/orders';
 
@@ -16,9 +16,9 @@ export default {
         return order;
     },
     async update(id, order) {
-        return request.put(`${baseURL}/${id}`, {...order, _id: id});
+        return request.put(`${baseURL}/${id}`, { ...order, _id: id });
     },
     async delete(id) {
         return request.delete(`${baseURL}/${id}`);
-    }
+    },
 };

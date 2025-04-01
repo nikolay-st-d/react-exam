@@ -46,8 +46,8 @@ function App() {
                         path='/orders/:orderId/edit'
                         element={<OrderEdit />}
                     />
-                    <Route path='/logout' element={<Logout />} />
                     <Route path='orders/create' element={<OrderCreate />} />
+                    <Route path='/logout' element={<Logout />} />
                 </Routes>
             </main>
             <Footer />

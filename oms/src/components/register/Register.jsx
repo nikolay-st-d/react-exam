@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router';
-import { useRegister } from '../../authHooks/authHooks';
+import { useRegister } from '../../apiHooks/authHooks';
 import { useActionState, useContext } from 'react';
 import { userContext } from '../../contexts/userContext';
 

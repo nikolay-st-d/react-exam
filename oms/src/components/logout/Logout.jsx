@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router';
-import { useLogout } from '../../authHooks/authHooks';
+import { useLogout } from '../../apiHooks/authHooks';
 import { useContext, useEffect } from 'react';
 import { userContext } from '../../contexts/userContext';
 

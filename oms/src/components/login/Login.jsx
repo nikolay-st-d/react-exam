@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router';
 import { useActionState, useContext } from 'react';
-import { useLogin } from '../../authHooks/authHooks';
+import { useLogin } from '../../apiHooks/authHooks';
 import { userContext } from '../../contexts/userContext';
 
 export default function Login() {
