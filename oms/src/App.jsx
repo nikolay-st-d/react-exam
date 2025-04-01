@@ -23,8 +23,12 @@ function App() {
         setUser(userData);
     };
 
+    const userLogoutHandler = () => {
+        setUser({});
+    }
+
     return (
-        <userContext.Provider value={{ ...user, userLoginHandler }}>
+        <userContext.Provider value={{ ...user, userLoginHandler, userLogoutHandler }}>
             <Header />
             <main>
                 <Routes>

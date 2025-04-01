@@ -8,7 +8,7 @@ export default function User() {
     return (
         <>
             {email
-            ? (<div className='user'><i class='fa-solid fa-user'></i> {username} - {email} </div>)
+            ? (<div className='user'><i className='fa-solid fa-user'></i> {email} </div>)
                 : ('')
                 }
         </>

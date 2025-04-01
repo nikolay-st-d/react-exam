@@ -12,8 +12,7 @@ export default function Register() {
 
         const values = Object.fromEntries(formData);
 
-        const username = formData.get('username');
-        const email = formData.get('email');
+        const email = values.email;
         const password = formData.get('password');
         const password2 = formData.get('password2');
 
@@ -25,7 +24,7 @@ export default function Register() {
         try {
             const response = await register(email, password);
 
-            if (response.code !== 200) {
+            if (response.message && response.code !== 200) {
                 alert(response.message);
                 return;
             }
@@ -52,13 +51,6 @@ export default function Register() {
         <>
             <h2>Register</h2>
             <form action={RegisterAction}>
-                <input
-                    type='text'
-                    id='username'
-                    name='username'
-                    placeholder='Username'
-                    required
-                />
                 <input
                     type='email'
                     id='email'

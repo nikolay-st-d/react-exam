@@ -1,4 +1,6 @@
 import request from '../utils/request';
+import { useContext } from 'react';
+import { userContext } from '../contexts/userContext';
 
 const baseUrl = 'http://localhost:3030/users';
 
@@ -28,4 +30,23 @@ export const useRegister = () => {
     return {
         register,
     }
+};
+
+export const useLogout = () => {
+
+    const { accessToken } = useContext(userContext);    
+
+    const options = {
+        headers: {
+            'X-Authorization': accessToken
+        }
+    };
+    
+    const logout = () => {
+        return request.get(baseUrl + '/logout', null, options);
+    };
+
+    return {
+        logout,
+    };
 };
