@@ -1,21 +1,18 @@
 import { useNavigate } from 'react-router';
 import authService from '../../services/authService';
+import { useActionState } from 'react';
 
-export default function Login({ loginHandler }) {
+export default function Login({ onLogin }) {
     const navigate = useNavigate();
 
-    const loginAction = async (event) => {
-        event.preventDefault();
-
-        const formData = new FormData(event.target);
-        const email = formData.get('email');
-        const password = formData.get('password');
+    const LoginHandler = async (prevState, formData) => {
+        const values = Object.fromEntries(formData);
 
         try {
-            const response = await authService.login(email, password);
+            const response = await authService.login(values.email, values.password);
 
-            if (response.email === email) {
-                loginHandler(email);
+            if (response.email === values.email) {
+                onLogin(response);
                 navigate('/orders');
             } else {
                 alert('Incorrect login credentials!');
@@ -23,12 +20,19 @@ export default function Login({ loginHandler }) {
         } catch (error) {
             alert('LOGIN FAILED! Error: ' + error);
         }
+
+        return values;
     };
+
+    const [values, LoginAction, isPending] = useActionState(LoginHandler, {
+        email: '',
+        password: '',
+    });
 
     return (
         <>
             <h2>Login</h2>
-            <form onSubmit={loginAction}>
+            <form action={LoginAction}>
                 <input type='email' name='email' placeholder='Email' required />
                 <input
                     type='password'
@@ -36,7 +40,7 @@ export default function Login({ loginHandler }) {
                     placeholder='Password'
                     required
                 />
-                <button type='submit'>Login</button>
+                <button disabled={isPending}>Login</button>
             </form>
         </>
     );

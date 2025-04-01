@@ -15,10 +15,10 @@ import './styles.css';
 import { useState } from 'react';
 
 function App() {
-    const [user, setUser] = useState("");
+    const [user, setUser] = useState({});
 
-    const userLoginHandler = (email) => {
-        setUser(email);
+    const userLoginHandler = (userData) => {
+        setUser(userData);
     };
 
     return (
@@ -27,7 +27,7 @@ function App() {
             <main>
                 <Routes>
                     <Route path='/' element={<Home />} />
-                    <Route path='/login' element={<Login loginHandler={userLoginHandler} />} />
+                    <Route path='/login' element={<Login onLogin={userLoginHandler} />} />
                     <Route path='/register' element={<Register />} />
                     <Route path='/orders' element={<Dashboard />} />
                     <Route
