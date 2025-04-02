@@ -1,14 +1,10 @@
 import { Link } from 'react-router';
-import orderService from '../../services/orderService';
-import { useEffect, useState } from 'react';
 import OrderItem from './order/OrderItem';
+import { useAllOrders } from '../../apiHooks/orderHooks';
 
 export default function Dashboard() {
-    const [orders, setOrders] = useState([]);
 
-    useEffect(() => {
-        orderService.getAll().then((result) => setOrders(result));
-    }, []);
+    const {orders} = useAllOrders();
 
     return (
         <div className='main-content-wrapper '>

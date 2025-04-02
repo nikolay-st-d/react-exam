@@ -1346,6 +1346,22 @@
     	}
     };
     var seedData = {
+        orders: {
+            "747ce68b-70b8-4f22-8f69-e23e15b49d4d": {
+                _ownerId: "520170a3-8249-4a9d-8cb4-98c3c0460eb9",
+                customerName: "Николай Димитров",
+                customerEmail: "admin@abv.bg",
+                customerPhone: "0898562598",
+                customerCountry: "Bulgaria",
+                customerAddress: "ул. Граф Игнтиев бл. 44, ап. 1",
+                orderDate: "2025-04-02",
+                orderItems: "Protection cover",
+                orderTotal: "23",
+                orderStatus: "Shipped",
+                _createdOn: 1743580113471,
+                _id: "747ce68b-70b8-4f22-8f69-e23e15b49d4d"
+            },
+        },
     	recipes: {
     		"3987279d-0ad4-4afb-8ca9-5b256ae3b298": {
     			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
