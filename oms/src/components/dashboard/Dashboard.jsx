@@ -1,10 +1,15 @@
 import { Link } from 'react-router';
 import OrderItem from './order/OrderItem';
 import { useAllOrders } from '../../apiHooks/orderHooks';
+import { useContext } from 'react';
+import { userContext } from '../../contexts/userContext';
 
 export default function Dashboard() {
+    const { _id } = useContext(userContext);
 
-    const {orders} = useAllOrders();
+    const { orders } = useAllOrders();    
+
+    const filteredOrders = orders.filter((order) => order._ownerId == _id);    
 
     return (
         <div className='main-content-wrapper '>
@@ -27,10 +32,12 @@ export default function Dashboard() {
                     </tr>
                 </thead>
                 <tbody>
-                    {orders.map(order => <OrderItem key={order._id} {...order} />)}
+                    {filteredOrders.map((order) => (
+                        <OrderItem key={order._id} {...order} />
+                    ))}
                 </tbody>
             </table>
-            <p>{orders.length === 0 ? "You don't have any orders." : ""}</p>
+            <p>{orders.length === 0 ? "You don't have any orders." : ''}</p>
         </div>
     );
 }
