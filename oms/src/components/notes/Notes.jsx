@@ -9,7 +9,10 @@ export default function Notes() {
 
     const { notes, refresh } = useAllNotes();
 
-    const filteredNotes = notes.filter((nt) => nt.orderId == orderId).reverse();
+    const filteredNotes =
+        notes.length > 0
+            ? notes.filter((nt) => nt.orderId == orderId).reverse()
+            : null;
 
     const noteSumbitHandler = async (formData) => {
         let noteData = Object.fromEntries(formData);
@@ -25,9 +28,9 @@ export default function Notes() {
                 <button>Add Note</button>
             </form>
             <section className='notes-list'>
-                {filteredNotes.map((nt) => (
-                    <Note key={nt._id} {...nt}/>
-                ))}
+                {notes.length > 0
+                    ? filteredNotes.map((nt) => <Note key={nt._id} {...nt} />)
+                    : 'No Notes'}
             </section>
         </section>
     );
