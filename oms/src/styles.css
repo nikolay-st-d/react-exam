@@ -90,7 +90,8 @@ nav {
     font-size: 1.1em;
 }
 
-nav ul, nav ul div {
+nav ul,
+nav ul div {
     display: flex;
     flex-direction: row;
     gap: 0.8em;
@@ -191,7 +192,7 @@ form {
     display: flex;
     flex-direction: column;
     gap: 1em;
-    margin: 2em auto;
+    margin: 0 auto;
 }
 
 input {
@@ -264,7 +265,7 @@ tr:hover {
     flex-direction: column;
     gap: 0.2em;
     align-items: flex-start;
-    padding: 2em 2.6em;
+    padding: 2em 2.2em;
     border: 1px solid lightgray;
     border-radius: 0.5em;
 }
@@ -274,6 +275,7 @@ tr:hover {
 
 .order-details table td:nth-child(2) {
     font-weight: 700;
+    min-width: 18em;
 }
 
 .order-details-buttons {
@@ -295,4 +297,18 @@ tr:hover {
     background-color: grey;
     cursor: pointer;
     color: #db9dff;
+}
+
+.edit-order {
+    font-size: 0.9em;
+    padding: 1em;
+    margin: 1em auto;
+    background-color: rgb(227, 239, 255);
+    border-radius: 0.5em;
+}
+.edit-order form {
+    gap: 0.5em;
+}
+.edit-order label {
+    font-size: 0.8em;
 }
