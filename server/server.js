@@ -1347,20 +1347,48 @@
     };
     var seedData = {
         orders: {
-            "747ce68b-70b8-4f22-8f69-e23e15b49d4d": {
-                _ownerId: "520170a3-8249-4a9d-8cb4-98c3c0460eb9",
+            "4e7c7002-937b-4d70-8642-bdd30597e2da": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
                 customerName: "Николай Димитров",
-                customerEmail: "admin@abv.bg",
+                customerEmail: "setagraphics@yahoo.com",
                 customerPhone: "0898562598",
                 customerCountry: "Bulgaria",
                 customerAddress: "ул. Граф Игнтиев бл. 44, ап. 1",
-                orderDate: "2025-04-02",
+                orderDate: "2025-04-01",
                 orderItems: "Protection cover",
                 orderTotal: "23",
                 orderStatus: "Shipped",
-                _createdOn: 1743580113471,
-                _id: "747ce68b-70b8-4f22-8f69-e23e15b49d4d"
+                _createdOn: 1743592269756,
+                _id: "4e7c7002-937b-4d70-8642-bdd30597e2da"
             },
+            "268fd58b-302f-4ba6-839d-9337bd9bb4ee": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                customerName: "Ceco",
+                customerEmail: "ceco@gmail.com",
+                customerPhone: "+3598787776622",
+                customerCountry: "Bulgaria",
+                customerAddress: "ул. Граф Игнaтиев бл. 44, ап. 1",
+                orderDate: "2025-04-03",
+                orderItems: "Charger",
+                orderTotal: "22",
+                orderStatus: "Shipped",
+                _createdOn: 1743592344185,
+                _id: "268fd58b-302f-4ba6-839d-9337bd9bb4ee"
+            },
+            "1bc722a0-cbe4-4acf-b4f8-eed48acbe7e1": {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                customerName: "Maya Lekova",
+                customerEmail: "ml@me.com",
+                customerPhone: "+359889554433",
+                customerCountry: "Bulgaria",
+                customerAddress: "22 Rila Str., Sofia",
+                orderDate: "2025-03-31",
+                orderItems: "Parfume XX",
+                orderTotal: "125",
+                orderStatus: "Paid",
+                _createdOn: 1743592449220,
+                _id: "1bc722a0-cbe4-4acf-b4f8-eed48acbe7e1"
+            }
         },
     	recipes: {
     		"3987279d-0ad4-4afb-8ca9-5b256ae3b298": {

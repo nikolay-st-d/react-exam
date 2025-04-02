@@ -1,36 +1,11 @@
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import request from '../utils/request';
-import { userContext } from '../contexts/userContext';
+import useAuth from '../hooks/useAuth';
 
 const baseURL = 'http://localhost:3030/data/orders';
 
-export default {
-    _create(order) {
-        return request.post(baseURL, order);
-    },
-    async _getAll() {
-        const result = await request.get(baseURL);
-        const orders = Object.values(result);
-        return orders;
-    },
-    async _getOne(id) {
-        const order = await request.get(`${baseURL}/${id}`);
-        return order;
-    },
-    async _update(id, order) {
-        return request.put(`${baseURL}/${id}`, { ...order, _id: id });
-    },
-    async _delete(id) {
-        return request.delete(`${baseURL}/${id}`);
-    },
-};
-
 export const useCreateOrder = () => {
-    const { accessToken } = useContext(userContext);
-
-    const options = {
-        headers: { 'X-Authorization': accessToken },
-    };
+    const { options } = useAuth();
 
     const create = (order) => {
         return request.post(baseURL, order, options);
@@ -40,18 +15,47 @@ export const useCreateOrder = () => {
 };
 
 export const useAllOrders = () => {
-    const { _id, accessToken } = useContext(userContext);
 
-    const options = {
-        headers: { 'X-Authorization': accessToken },
-    };
+    const { options } = useAuth();
 
     const [orders, setOrders] = useState([]);
 
     useEffect(() => {
-        request.get(baseURL, null, options)
-        .then(setOrders)
+        request.get(baseURL).then(setOrders);
     }, []);
 
     return { orders };
 };
+
+export const useOrder = (orderId) => {
+    const [order, setOrder] = useState({});
+
+    useEffect(() => {
+        request.get(`${baseURL}/${orderId}`).then(setOrder);
+    }, [orderId]);
+
+    return { order };
+};
+
+export const useDeleteOrder = () => {
+
+    const { options } = useAuth();
+
+    const deleteOrder = async (orderId) => {
+        await request.delete(`${baseURL}/${orderId}`, null, options);
+    };
+
+    return { deleteOrder };
+};
+
+export const useUpdateOrder = () => {
+
+    const { options } = useAuth();
+
+    const update = async (orderId, order) => {
+        await request.put(`${baseURL}/${orderId}`, { ...order, _id: orderId }, options);
+    };
+
+    return { update };
+};
+

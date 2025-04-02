@@ -1,22 +1,25 @@
-import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router';
-import orderService from '../../services/orderService';
+import { useOrder, useUpdateOrder } from '../../apiHooks/orderHooks';
 
 export default function OrderEdit() {
     const { orderId } = useParams();
 
     const navigate = useNavigate();
 
-    const [order, setOrder] = useState({});
+    // const [order, setOrder] = useState({});
 
-    useEffect(() => {
-        orderService.getOne(orderId).then(setOrder);
-    }, [orderId]);
+    const {order} = useOrder(orderId);
+    
+    const {update} = useUpdateOrder();
+
+    // useEffect(() => {
+    //     getOrder(orderId).then(setOrder);
+    // }, [orderId]);
 
     const orderSaveAction = async (formData) => {
         const orderData = Object.fromEntries(formData);
 
-        await orderService.update(orderId, orderData);
+        await update(orderId, orderData);
 
         // TODO: Implement Error handling with try/catch to check if the 
         // update was successful or not and navigate ONLY in case everything went fine

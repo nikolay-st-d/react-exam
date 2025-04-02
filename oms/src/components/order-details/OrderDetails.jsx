@@ -1,28 +1,26 @@
-import { useState, useEffect } from 'react';
-import orderService from '../../services/orderService';
 import { Link, useNavigate, useParams } from 'react-router';
+import { useDeleteOrder, useOrder } from '../../apiHooks/orderHooks';
 
 export default function OrderDetails(id) {
     const { orderId } = useParams();
 
     const navigate = useNavigate();
 
-    const [order, setOrder] = useState({});
+    const { order } = useOrder(orderId);
 
-    useEffect(() => {
-        orderService.getOne(orderId).then(setOrder);
-    }, [orderId]);
+    const { deleteOrder } = useDeleteOrder();
 
-    const orderDeleteClickHandler = async () => {
+    const orderDeleteClickHandler = async () => {        
+
         const confirmDelete = window.confirm(
             'Are you sure you want to delete this order? This operation is not reversible!'
         );
-
+        
         if (!confirmDelete) {
             return;
         }
 
-        await orderService.delete(orderId);
+        await deleteOrder(orderId);
         navigate('/orders');
     };
 
