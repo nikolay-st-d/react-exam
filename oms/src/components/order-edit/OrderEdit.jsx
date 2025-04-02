@@ -6,25 +6,19 @@ export default function OrderEdit() {
 
     const navigate = useNavigate();
 
-    // const [order, setOrder] = useState({});
-
     const {order} = useOrder(orderId);
     
     const {update} = useUpdateOrder();
 
-    // useEffect(() => {
-    //     getOrder(orderId).then(setOrder);
-    // }, [orderId]);
-
     const orderSaveAction = async (formData) => {
         const orderData = Object.fromEntries(formData);
 
-        await update(orderId, orderData);
-
-        // TODO: Implement Error handling with try/catch to check if the 
-        // update was successful or not and navigate ONLY in case everything went fine
-
-        navigate('/orders/');
+        try {
+            await update(orderId, orderData);
+            navigate('/orders/');
+        } catch (error) {
+            alert('ERROR: ' + error);
+        }
     };
 
     return (
