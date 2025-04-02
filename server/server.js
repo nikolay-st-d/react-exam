@@ -1389,6 +1389,22 @@
                 "_createdOn": 1743607957169,
                 "_id": "4d33bc90-dea3-4d1a-b08e-25b08fef69ea"
             }
+        ],
+        notes: [
+            {
+                "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                "note": "Note for order with ID = 3 (stored in server)",
+                "orderId": "2",
+                "_createdOn": 1743624079794,
+                "_id": "7ced6e03-c228-458a-a96e-f66db0c98a24"
+            },
+            {
+                "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                "note": "Note for order with ID = 0 (stored in server)",
+                "orderId": "0",
+                "_createdOn": 1743624124410,
+                "_id": "b262b810-893c-4c00-bd03-76c97ed3752a"
+            }
         ]
     };
     var rules$1 = {
