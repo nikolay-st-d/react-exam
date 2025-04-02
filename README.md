@@ -1,4 +1,3 @@
-# react-exam
 # OMS - React course exam project
 
 The project is an order management system (OMS) to manage manually created orders.
@@ -18,3 +17,5 @@ The OMS uses custom css styling with original responsive design to ensure users 
 
 ## Test
 The Softuni Practice server is included in the repo. The OMS uses the collections API with preceed data for esier testing. There are 3 orders assigned to user with email: admin@abv.bg and password: admin. Two notes are assigned to orders with Ids 1 and 2, they will be shown automatically along with the orders when the app is started nad the data are retrieved from the server.
+
+## Screenshots
