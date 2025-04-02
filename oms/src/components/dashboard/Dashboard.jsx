@@ -7,7 +7,7 @@ import { userContext } from '../../contexts/userContext';
 export default function Dashboard() {
     const { _id } = useContext(userContext);
 
-    const { orders } = useAllOrders();    
+    const { orders } = useAllOrders();
 
     const filteredOrders = orders.filter((order) => order._ownerId == _id);    
 
@@ -37,7 +37,7 @@ export default function Dashboard() {
                     ))}
                 </tbody>
             </table>
-            <p>{orders.length === 0 ? "You don't have any orders." : ''}</p>
+            <p>{filteredOrders.length === 0 ? "You don't have any orders." : ''}</p>
         </div>
     );
 }

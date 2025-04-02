@@ -21,7 +21,7 @@ export const useAllOrders = () => {
     const [orders, setOrders] = useState([]);
 
     useEffect(() => {
-        request.get(baseURL).then(setOrders);
+        request.get(baseURL, null, options).then(setOrders);
     }, []);
 
     return { orders };
