@@ -1,5 +1,6 @@
 import { Link, useNavigate, useParams } from 'react-router';
 import { useDeleteOrder, useOrder } from '../../apiHooks/orderHooks';
+import Notes from '../notes/Notes';
 
 export default function OrderDetails(id) {
     const { orderId } = useParams();
@@ -10,12 +11,11 @@ export default function OrderDetails(id) {
 
     const { deleteOrder } = useDeleteOrder();
 
-    const orderDeleteClickHandler = async () => {        
-
+    const orderDeleteClickHandler = async () => {
         const confirmDelete = window.confirm(
             'Are you sure you want to delete this order? This operation is not reversible!'
         );
-        
+
         if (!confirmDelete) {
             return;
         }
@@ -29,16 +29,48 @@ export default function OrderDetails(id) {
             <h3>ORDER DETAILS</h3>
             <div className='order-details'>
                 <table>
-                    <tr><td>Name:</td><td>{order.customerName}</td></tr>
-                    <tr><td>Email:</td><td>{order.customerEmail}</td></tr>
-                    <tr><td>Phone:</td><td>{order.customerPhone}</td></tr>
-                    <tr><td>Country:</td><td>{order.customerCountry}</td></tr>
-                    <tr><td>Address:</td><td>{order.customerAddress}</td></tr>
-                    <tr><td>Date:</td><td>{order.orderDate}</td></tr>
-                    <tr><td>Items:</td><td>{order.orderItems}</td></tr>
-                    <tr><td>Total:</td><td>{order.orderTotal}</td></tr>
-                    <tr><td>Status:</td><td>{order.orderStatus}</td></tr>
-                    <tr><td>Order ID:</td><td>{order._id}</td></tr>
+                    <tbody>
+                        <tr>
+                            <td>Name:</td>
+                            <td>{order.customerName}</td>
+                        </tr>
+                        <tr>
+                            <td>Email:</td>
+                            <td>{order.customerEmail}</td>
+                        </tr>
+                        <tr>
+                            <td>Phone:</td>
+                            <td>{order.customerPhone}</td>
+                        </tr>
+                        <tr>
+                            <td>Country:</td>
+                            <td>{order.customerCountry}</td>
+                        </tr>
+                        <tr>
+                            <td>Address:</td>
+                            <td>{order.customerAddress}</td>
+                        </tr>
+                        <tr>
+                            <td>Date:</td>
+                            <td>{order.orderDate}</td>
+                        </tr>
+                        <tr>
+                            <td>Items:</td>
+                            <td>{order.orderItems}</td>
+                        </tr>
+                        <tr>
+                            <td>Total:</td>
+                            <td>{order.orderTotal}</td>
+                        </tr>
+                        <tr>
+                            <td>Status:</td>
+                            <td>{order.orderStatus}</td>
+                        </tr>
+                        <tr>
+                            <td>Order ID:</td>
+                            <td>{order._id}</td>
+                        </tr>
+                    </tbody>
                 </table>
 
                 <div className='order-details-buttons'>
@@ -61,6 +93,7 @@ export default function OrderDetails(id) {
                     </div>
                 </div>
             </div>
+            <Notes orderId={order._id} />
         </>
     );
 }
