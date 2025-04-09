@@ -44,7 +44,8 @@ export default function Notes() {
                     required
                     type='text' 
                     id='note' 
-                    name='note' 
+                    name='note'
+                    placeholder='Add note (min. 10 characters)'
                     value={noteValue} // Bind input value to state
                     onChange={handleChange} 
                 />
