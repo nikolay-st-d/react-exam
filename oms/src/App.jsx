@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router';
+import { useState } from 'react';
 
 import Header from './components/header/Header';
 import Home from './components/home/Home';
@@ -10,9 +11,9 @@ import Logout from './components/logout/Logout';
 import OrderCreate from './components/order-create/OrderCreate';
 import OrderDetails from './components/order-details/orderDetails';
 import OrderEdit from './components/order-edit/OrderEdit';
+import PrivateRoute from './components/private-route/PrivateRoute';
 
 import './styles.css';
-import { useState } from 'react';
 import { userContext } from './contexts/userContext';
 
 function App() {
@@ -24,11 +25,11 @@ function App() {
 
     const userLogoutHandler = () => {
         setUser({});
-    }
+    };
 
     const isLoggedIn = () => {
         return user && user.accessToken;
-    }
+    };
 
     return (
         <userContext.Provider value={{ ...user, userLoginHandler, userLogoutHandler, isLoggedIn }}>
@@ -36,22 +37,49 @@ function App() {
             <main>
                 <Routes>
                     <Route path='/' element={<Home />} />
-                    <Route
-                        path='/login'
-                        element={<Login/>}
-                    />
+                    <Route path='/login' element={<Login />} />
                     <Route path='/register' element={<Register />} />
-                    <Route path='/orders' element={<Dashboard />} />
+
+                    <Route
+                        path='/orders'
+                        element={
+                            <PrivateRoute>
+                                <Dashboard />
+                            </PrivateRoute>
+                        }
+                    />
+                    <Route
+                        path='/orders/create'
+                        element={
+                            <PrivateRoute>
+                                <OrderCreate />
+                            </PrivateRoute>
+                        }
+                    />
                     <Route
                         path='/orders/:orderId/details'
-                        element={<OrderDetails />}
+                        element={
+                            <PrivateRoute>
+                                <OrderDetails />
+                            </PrivateRoute>
+                        }
                     />
                     <Route
                         path='/orders/:orderId/edit'
-                        element={<OrderEdit />}
+                        element={
+                            <PrivateRoute>
+                                <OrderEdit />
+                            </PrivateRoute>
+                        }
                     />
-                    <Route path='orders/create' element={<OrderCreate />} />
-                    <Route path='/logout' element={<Logout />} />
+                    <Route
+                        path='/logout'
+                        element={
+                            <PrivateRoute>
+                                <Logout />
+                            </PrivateRoute>
+                        }
+                    />
                 </Routes>
             </main>
             <Footer />
