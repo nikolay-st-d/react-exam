@@ -16,11 +16,11 @@ export default function Login() {
 
         const newErrors = {};
 
-        if (!values.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) {
-            newErrors.email = 'Invalid email address!';
+        if (!values.email) {
+            newErrors.email = 'Email is required!';
         }
-        if (!values.password || values.password.length < 3) {
-            newErrors.password = 'Password must be at least 3 characters!';
+        if (!values.password) {
+            newErrors.password = 'Password is required!';
         }
 
         // Prevent login if errors are present
