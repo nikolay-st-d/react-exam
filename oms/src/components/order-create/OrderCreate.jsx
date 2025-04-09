@@ -103,9 +103,9 @@ export default function CreateOrder() {
                             style={errors[name] ? { borderColor: 'red' } : {}}
                         />
                         {errors[name] && (
-                            <p style={{ color: 'red', margin: 0 }}>
+                            <div className="validation-error">
                                 {errors[name]}
-                            </p>
+                            </div>
                         )}
                     </div>
                 ))}
