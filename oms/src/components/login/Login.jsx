@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router';
-import { useActionState, useContext } from 'react';
+import { useActionState, useContext, useState } from 'react';
 import { useLogin } from '../../apiHooks/authHooks';
 import { userContext } from '../../contexts/userContext';
 
@@ -8,22 +8,39 @@ export default function Login() {
     const { userLoginHandler } = useContext(userContext);
     const { isLoggedIn } = useContext(userContext);
 
+    const [errors, setErrors] = useState({});
+
     const loginHandler = async (prevState, formData) => {
         const { login } = useLogin();
-
         const values = Object.fromEntries(formData);
+
+        const newErrors = {};
+
+        if (!values.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) {
+            newErrors.email = 'Invalid email address!';
+        }
+        if (!values.password || values.password.length < 3) {
+            newErrors.password = 'Password must be at least 3 characters!';
+        }
+
+        // Prevent login if errors are present
+        if (Object.keys(newErrors).length > 0) {
+            setErrors(newErrors);
+            return values;
+        }
+
+        setErrors({}); // Clear errors on successfull validation
 
         try {
             const response = await login(values.email, values.password);
-
             if (response.email === values.email) {
                 userLoginHandler(response);
                 navigate('/orders');
             } else {
-                alert('Incorrect login credentials!');
+                setErrors({ form: 'Incorrect login credentials!' });
             }
         } catch (error) {
-            alert('LOGIN FAILED! Error: ' + error);
+            setErrors({ form: 'Login failed! ' + error.message });
         }
 
         return values;
@@ -34,32 +51,49 @@ export default function Login() {
         password: userContext.password || '',
     });
 
-    console.log(isLoggedIn());
-    
-
     return (
         <>
             <h2>Login</h2>
-            {
-            isLoggedIn() ? (<p>You are already logged in!</p>)
-            : (
+            {isLoggedIn() ? (
+                <p>You are already logged in!</p>
+            ) : (
                 <form action={LoginAction}>
-                    <input
-                        type='email'
-                        name='email'
-                        placeholder='Email'
-                        required
-                    />
-                    <input
-                        type='password'
-                        name='password'
-                        placeholder='Password'
-                        required
-                    />
+                    {errors.form && (
+                        <div className='validation-error'>{errors.form}</div>
+                    )}
+                    <div>
+                        <input
+                            type='email'
+                            name='email'
+                            placeholder='Email'
+                            required
+                            style={errors.email ? { borderColor: 'red' } : {}}
+                        />
+                        {errors.email && (
+                            <div className='validation-error'>
+                                {errors.email}
+                            </div>
+                        )}
+                    </div>
+                    <div>
+                        <input
+                            type='password'
+                            name='password'
+                            placeholder='Password'
+                            required
+                            style={
+                                errors.password ? { borderColor: 'red' } : {}
+                            }
+                        />
+                        {errors.password && (
+                            <div className='validation-error'>
+                                {errors.password}
+                            </div>
+                        )}
+                    </div>
                     <button disabled={isPending}>Login</button>
                 </form>
-            )
-            }
+            )}
         </>
     );
 }

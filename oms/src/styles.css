@@ -219,6 +219,13 @@ button:hover {
     background-color: #747bff;
 }
 
+.validation-error {
+    color: red;
+    font-size: 0.9em;
+    font-weight: 700;
+    text-align: center;
+}
+
 .dashboard-header {
     display: flex;
     flex-direction: row;
