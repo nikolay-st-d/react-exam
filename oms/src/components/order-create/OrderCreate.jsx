@@ -73,7 +73,7 @@ export default function CreateOrder() {
             await create(formData);
             navigate('/orders');
         } catch (error) {
-            alert('ORDER NOT CREATED! Error: ' + error);
+            alert('ORDER NOT CREATED! Error: ' + error.message);
         }
     };
 
@@ -103,11 +103,12 @@ export default function CreateOrder() {
                             style={errors[name] ? { borderColor: 'red' } : {}}
                         />
                         {errors[name] && (
-                            <p style={{ color: 'red', margin: 0 }}>{errors[name]}</p>
+                            <p style={{ color: 'red', margin: 0 }}>
+                                {errors[name]}
+                            </p>
                         )}
                     </div>
                 ))}
-
                 <button type='submit'>Add Order</button>
             </form>
         </div>
