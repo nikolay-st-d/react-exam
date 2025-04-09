@@ -20,6 +20,9 @@ export const useAllNotes = () => {
 
     const [notes, setNotes] = useState([]);
 
+    console.log(notes);
+    
+
     useEffect(() => {
         request.get(baseURL, null, options).then(setNotes);
     }, []);

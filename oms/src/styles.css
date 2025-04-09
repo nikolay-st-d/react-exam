@@ -345,5 +345,10 @@ tr:hover {
     border-radius: 0.4em;
     text-align: left;
     padding: 0.2em 0.4em;
-    color: grey;
+    color: rgb(95, 95, 95);
+}
+
+.note-datetime {
+    color: rgb(145, 145, 145);
+    font-size: 0.8em;
 }
