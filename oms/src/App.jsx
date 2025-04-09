@@ -7,7 +7,7 @@ import Login from './components/login/Login';
 import Register from './components/register/Register';
 import Dashboard from './components/dashboard/Dashboard';
 import Logout from './components/logout/Logout';
-import OrderCreate from './components/create/OrderCreate';
+import OrderCreate from './components/order-create/OrderCreate';
 import OrderDetails from './components/order-details/orderDetails';
 import OrderEdit from './components/order-edit/OrderEdit';
 
@@ -26,8 +26,12 @@ function App() {
         setUser({});
     }
 
+    const isLoggedIn = () => {
+        return user && user.accessToken;
+    }
+
     return (
-        <userContext.Provider value={{ ...user, userLoginHandler, userLogoutHandler }}>
+        <userContext.Provider value={{ ...user, userLoginHandler, userLogoutHandler, isLoggedIn }}>
             <Header />
             <main>
                 <Routes>

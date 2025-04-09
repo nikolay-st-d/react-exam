@@ -12,8 +12,8 @@ export default function Logout() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        logout();
-        userLogoutHandler();
+        logout(); // logout from server
+        userLogoutHandler(); // set client user state
         navigate('/');
     }, []);
 

@@ -4,12 +4,11 @@ import { useLogin } from '../../apiHooks/authHooks';
 import { userContext } from '../../contexts/userContext';
 
 export default function Login() {
-
     const navigate = useNavigate();
-    const {userLoginHandler} = useContext(userContext);
+    const { userLoginHandler } = useContext(userContext);
+    const { isLoggedIn } = useContext(userContext);
 
     const loginHandler = async (prevState, formData) => {
-
         const { login } = useLogin();
 
         const values = Object.fromEntries(formData);
@@ -31,23 +30,36 @@ export default function Login() {
     };
 
     const [prevState, LoginAction, isPending] = useActionState(loginHandler, {
-        email: '',
-        password: '',
+        email: userContext.email || '',
+        password: userContext.password || '',
     });
+
+    console.log(isLoggedIn());
+    
 
     return (
         <>
             <h2>Login</h2>
-            <form action={LoginAction}>
-                <input type='email' name='email' placeholder='Email' required />
-                <input
-                    type='password'
-                    name='password'
-                    placeholder='Password'
-                    required
-                />
-                <button disabled={isPending}>Login</button>
-            </form>
+            {
+            isLoggedIn() ? (<p>You are already logged in!</p>)
+            : (
+                <form action={LoginAction}>
+                    <input
+                        type='email'
+                        name='email'
+                        placeholder='Email'
+                        required
+                    />
+                    <input
+                        type='password'
+                        name='password'
+                        placeholder='Password'
+                        required
+                    />
+                    <button disabled={isPending}>Login</button>
+                </form>
+            )
+            }
         </>
     );
 }

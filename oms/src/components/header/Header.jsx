@@ -5,6 +5,7 @@ import User from '../user/User';
 
 export default function Header() {
     const { accessToken } = useContext(userContext);
+    const { isLoggedIn } = useContext(userContext);
 
     return (
         <header>
@@ -15,7 +16,7 @@ export default function Header() {
                 <User />
                 <nav>
                     <ul>
-                        {accessToken ? (
+                        {isLoggedIn() ? (
                             <div>
                                 <li>
                                     <Link to='/orders'>Orders</Link>
