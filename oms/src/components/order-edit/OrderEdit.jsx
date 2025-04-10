@@ -6,7 +6,7 @@ export default function OrderEdit() {
     const { orderId } = useParams();
     const navigate = useNavigate();
 
-    const { order, isLoading } = useOrder(orderId); // ensure your hook provides `isLoading`
+    const { order, isLoading } = useOrder(orderId);
     const { update } = useUpdateOrder();
 
     const [formData, setFormData] = useState(null);

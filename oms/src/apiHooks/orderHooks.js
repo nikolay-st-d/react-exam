@@ -30,11 +30,14 @@ export const useAllOrders = () => {
 export const useOrder = (orderId) => {
     const [order, setOrder] = useState({});
 
+    let isLoading = true;
+
     useEffect(() => {
         request.get(`${baseURL}/${orderId}`).then(setOrder);
     }, [orderId]);
+    isLoading = false;
 
-    return { order };
+    return { order, isLoading };
 };
 
 export const useDeleteOrder = () => {
