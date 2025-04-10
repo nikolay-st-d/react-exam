@@ -227,6 +227,7 @@ button {
 
 button:hover {
     background-color: #747bff;
+    cursor: pointer;
 }
 
 .validation-error {
@@ -337,6 +338,11 @@ tr:hover {
 .edit-order label {
     font-size: 0.8em;
 }
+
+#cancel-button {
+    margin-top: 1em;
+}
+
 .notes-container {
     display: flex;
     flex-direction: column;

@@ -80,13 +80,17 @@ export default function OrderEdit() {
         setErrors({});
         try {
             await update(orderId, formData);
-            navigate('/orders/');
+            navigate('/orders/' + orderId + '/details');
         } catch (error) {
             alert('ERROR: ' + error);
         }
     };
 
     if (isLoading || !formData) return <p>Loading order...</p>;
+
+    function handleCancel() {
+        navigate('/orders/' + orderId + '/details');
+    }
 
     return (
         <div className='edit-order'>
@@ -119,8 +123,9 @@ export default function OrderEdit() {
                         )}
                     </div>
                 ))}
-                <button type='submit'>Save Order</button>
+                <button type='submit'>Save Changes</button>
             </form>
+                <button id="cancel-button" onClick={handleCancel}>Cancel</button>
         </div>
     );
 }
