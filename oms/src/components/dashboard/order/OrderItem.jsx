@@ -15,7 +15,7 @@ export default function OrderItem({
             <td>{customerEmail}</td>
             <td>{customerCountry}</td>
             <td>{orderDate}</td>
-            <td>{orderTotal}</td>
+            <td>{parseFloat(orderTotal).toFixed(2)}</td>
             <td>{orderStatus}</td>
             <td>
                 <div className='actions'>

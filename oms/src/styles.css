@@ -187,11 +187,12 @@ footer p:nth-child(2) {
     color: rgb(175, 175, 175);
 }
 
-form {
-    width: 360px;
+form{
     display: flex;
     flex-direction: column;
     gap: 1em;
+    width: 100%;
+    max-width: 360px;
     margin: 0 auto;
 }
 
@@ -211,7 +212,7 @@ input::placeholder {
 input:focus {
     outline: none;
     border: 2px solid #9599e6;
-    background-color:  #f4f4ff;
+    background-color: #f4f4ff;
 }
 
 button {
@@ -247,14 +248,23 @@ button:hover {
     margin-bottom: 1em;
 }
 
+.order-data-container {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 table {
     margin: 0 auto;
+    border-spacing: 3px;
 }
 
 th,
 td {
     padding: 0.2em 0.5em;
-    border-radius: 0.2em;
+    border-radius: 0.3em;
 }
 
 th {
@@ -263,11 +273,11 @@ th {
 }
 
 tr {
-    background-color: rgb(227, 239, 255);
+    background-color: rgb(232, 241, 253);
 }
 
 tr:hover {
-    background-color: rgb(209, 229, 255);
+    background-color: rgb(196, 222, 255);
 }
 
 .actions {
@@ -334,7 +344,7 @@ tr:hover {
 }
 .notes-container form {
     font-size: 0.9em;
-    gap: 0.1em;
+    gap: 0.3em;
 }
 .notes-container button {
     font-size: 0.9em;
@@ -348,7 +358,7 @@ tr:hover {
     flex-direction: column;
     gap: 0.3em;
 }
-.notes-list>div {
+.notes-list > div {
     max-width: 1080px;
     font-size: 0.9em;
     border: 1px solid rgb(238, 238, 238);

@@ -28,6 +28,9 @@ export default function OrderDetails(id) {
         <>
             <h3>ORDER DETAILS</h3>
             <div className='order-details'>
+                <div className="order-data-container">
+                <div>
+                    <h3>Customer data</h3>
                 <table>
                     <tbody>
                         <tr>
@@ -50,6 +53,14 @@ export default function OrderDetails(id) {
                             <td>Address:</td>
                             <td>{order.customerAddress}</td>
                         </tr>
+                    </tbody>
+                </table>
+                </div>
+                <div>
+                    <h3>Order data</h3>
+                    <table>
+                    <tbody>
+                        
                         <tr>
                             <td>Date:</td>
                             <td>{order.orderDate}</td>
@@ -60,7 +71,7 @@ export default function OrderDetails(id) {
                         </tr>
                         <tr>
                             <td>Total:</td>
-                            <td>{order.orderTotal}</td>
+                            <td>{parseFloat(order.orderTotal).toFixed(2)}</td>
                         </tr>
                         <tr>
                             <td>Status:</td>
@@ -72,6 +83,9 @@ export default function OrderDetails(id) {
                         </tr>
                     </tbody>
                 </table>
+                </div>
+                </div>
+
 
                 <div className='order-details-buttons'>
                     <Link className='order-details-button' to={'/orders'}>

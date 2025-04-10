@@ -5,7 +5,7 @@ export default function Note({ note, _createdOn }) {
     return (
         <div className='note'>
             <p>{note}</p>
-            <div class="note-datetime">{formattedDate}</div>
+            <div className="note-datetime">{formattedDate}</div>
         </div>
     );
 }

@@ -49,7 +49,7 @@ export default function Notes() {
                     value={noteValue} // Bind input value to state
                     onChange={handleChange} 
                 />
-                <button>Add Note</button>
+                <button>ADD NOTE</button>
             </form>
             <section className='notes-list'>
                 {notes.length > 0
