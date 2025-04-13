@@ -1,6 +1,7 @@
 import { useNavigate, useParams } from 'react-router';
 import { useOrder, useUpdateOrder } from '../../apiHooks/orderHooks';
 import { useEffect, useState } from 'react';
+import { orderData } from '../../order-data/orderData';
 
 export default function OrderEdit() {
     const { orderId } = useParams();
@@ -97,17 +98,7 @@ export default function OrderEdit() {
             <h2>Edit Order</h2>
 
             <form id='editOrder' onSubmit={handleSubmit}>
-                {[
-                    ['customerName', 'Customer Name', 'text'],
-                    ['customerEmail', 'Customer Email', 'email'],
-                    ['customerPhone', 'Customer Phone', 'text'],
-                    ['customerCountry', 'Customer Country', 'text'],
-                    ['customerAddress', 'Customer Address', 'text'],
-                    ['orderDate', 'Order Date', 'date'],
-                    ['orderItems', 'Order Items', 'text'],
-                    ['orderTotal', 'Order Total', 'text'],
-                    ['orderStatus', 'Order Status', 'text'],
-                ].map(([name, label, type]) => (
+                {orderData.map(([name, label, type]) => (
                     <div key={name}>
                         <label htmlFor={name}>{label}</label>
                         <input
@@ -119,13 +110,17 @@ export default function OrderEdit() {
                             style={errors[name] ? { borderColor: 'red' } : {}}
                         />
                         {errors[name] && (
-                            <div className="validation-error">{errors[name]}</div>
+                            <div className='validation-error'>
+                                {errors[name]}
+                            </div>
                         )}
                     </div>
                 ))}
                 <button type='submit'>Save Changes</button>
             </form>
-                <button id="cancel-button" onClick={handleCancel}>Cancel</button>
+            <button id='cancel-button' onClick={handleCancel}>
+                Cancel
+            </button>
         </div>
     );
 }

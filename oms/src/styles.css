@@ -192,12 +192,11 @@ form{
     flex-direction: column;
     gap: 1em;
     width: 100%;
-    max-width: 360px;
+    max-width: fit-content;
     margin: 0 auto;
 }
 
 input {
-    width: 100%;
     font-size: 1.1em;
     padding: 0.3em 0.6em;
     border-radius: 0.4em;
@@ -332,8 +331,26 @@ tr:hover {
     background-color: rgb(227, 239, 255);
     border-radius: 0.5em;
 }
-.edit-order form {
+.edit-order div {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 0.1em;
+    align-items: center;
+}
+@media screen and (min-width: 360px) {
+    .edit-order div {
+        flex-direction: row;
     gap: 0.5em;
+}
+    
+}
+.edit-order div label {
+    width: 9em;
+    text-align: left;
+}
+.edit-order form {
+    gap: 0.3em;
 }
 .edit-order label {
     font-size: 0.8em;

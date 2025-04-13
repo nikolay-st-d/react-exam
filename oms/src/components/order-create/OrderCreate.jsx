@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router';
 import { useCreateOrder } from '../../apiHooks/orderHooks';
 import { useState } from 'react';
+import { orderData } from '../../order-data/orderData';
 
 export default function CreateOrder() {
     const navigate = useNavigate();
@@ -82,17 +83,7 @@ export default function CreateOrder() {
             <h2>Add Order</h2>
 
             <form id='createOrder' onSubmit={handleSubmit}>
-                {[
-                    ['customerName', 'Customer Name', 'text'],
-                    ['customerEmail', 'Customer Email', 'email'],
-                    ['customerPhone', 'Customer Phone', 'text'],
-                    ['customerCountry', 'Customer Country', 'text'],
-                    ['customerAddress', 'Customer Address', 'text'],
-                    ['orderDate', 'Order Date', 'date'],
-                    ['orderItems', 'Order Items', 'text'],
-                    ['orderTotal', 'Order Total', 'text'],
-                    ['orderStatus', 'Order Status', 'text'],
-                ].map(([name, label, type]) => (
+                {orderData.map(([name, label, type]) => (
                     <div key={name}>
                         <input
                             type={type}
